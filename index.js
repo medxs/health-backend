@@ -148,7 +148,11 @@ app.listen(port, () => {
 })
 
 // db connection over here
-mongoose.connect(process.env.DB_URL)
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: "chemo"
+})
     .then(() => {
         console.log("Connected to MongoDB Successfully");
     })
